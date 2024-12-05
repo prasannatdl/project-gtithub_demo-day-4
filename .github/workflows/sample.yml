@@ -54,11 +54,11 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - run: echo "hello Test"
-  publish:
+  publishs:
     runs-on: ubuntu-latest
     needs:
-      - lint
-      - test
+      - test2
+      - test3
     steps:
       - uses: actions/checkout@v2
       - run: echo "Hello world"

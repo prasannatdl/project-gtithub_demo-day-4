@@ -38,7 +38,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - run: echo "hello Test"
-test2:
+  test2:
     strategy:
       matrix:
         os: [ubuntu-latest, windows-latest, macos-latest ]
@@ -46,7 +46,7 @@ test2:
     steps:
       - uses: actions/checkout@v2
       - run: echo "hello Test"
-test3:
+  test3:
     strategy:
       matrix:
         os: [ubuntu-latest, windows-latest, macos-latest ]

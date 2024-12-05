@@ -1,0 +1,34 @@
+
+# .github/workflows/main.yml
+name: Main Workflow
+
+on:
+  push:
+    branches:
+      - workflow
+
+jobs:
+  setup:
+    uses: ./.github/workflows/setup.yml
+    with:
+      branch: "workflow"  # Pass the branch name as an input
+
+  build:
+    runs-on: ubuntu-latest
+    needs: setup  # Ensure the setup job runs first
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Build the application
+        run: npm run build
+
+  test:
+    runs-on: ubuntu-latest
+    needs: build  # Ensure the build job runs first
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Run tests
+        run: npm test

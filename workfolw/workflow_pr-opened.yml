@@ -1,0 +1,28 @@
+# .github/workflows/pr_opened.yml
+name: Pull Request Opened Workflow
+
+on:
+  pull_request:
+    types:
+      - opened      # Trigger when PR is opened
+      - synchronize # Trigger when PR is updated (commits pushed to the PR)
+    branches:
+      - main        # Specify the target branch (e.g., main)
+
+jobs:
+  test_build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '16'
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Run tests
+        run: npm test

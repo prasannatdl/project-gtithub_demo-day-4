@@ -2,7 +2,7 @@ name: Daily Action at 8-55 PM IST
  
 on:
   schedule:
-    - cron: '25 21 * * *'  # This is in UTC, so it's 9 PM IST (India/Kolkata)
+    - cron: '10 22 * * *'  # This is in UTC, so it's 9 PM IST (India/Kolkata)
   #timezone: 'Asia/Kolkata'  # Set the timezone to IST
  
 jobs:
